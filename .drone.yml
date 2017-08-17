@@ -1,0 +1,19 @@
+pipeline:
+  build:
+    image: microsoft/dotnet
+    commands:
+      - dotnet restore PrimeService
+      - dotnet build PrimeService
+  build-tests:
+    image: microsoft/dotnet
+    commands:
+      - dotnet restore PrimeService.Tests
+      - dotnet build PrimeService.Tests
+  test:
+    image: microsoft/dotnet
+    commands:
+      - dotnet test PrimeService.Tests
+  test:
+    image: microsoft/dotnet
+    commands:
+      - dotnet publish PrimeService -c Release -o out
