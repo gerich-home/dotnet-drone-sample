@@ -1,19 +1,19 @@
 pipeline:
   build:
-    image: microsoft/dotnet
+    image: microsoft/dotnet:2.0.0-sdk
     commands:
       - dotnet restore PrimeService
       - dotnet build PrimeService
   build-tests:
-    image: microsoft/dotnet
+    image: microsoft/dotnet:2.0.0-sdk
     commands:
       - dotnet restore PrimeService.Tests
       - dotnet build PrimeService.Tests
   test:
-    image: microsoft/dotnet
+    image: microsoft/dotnet:2.0.0-sdk
     commands:
       - dotnet test PrimeService.Tests
   test:
-    image: microsoft/dotnet
+    image: microsoft/dotnet:2.0.0-sdk
     commands:
       - dotnet publish PrimeService -c Release -o out
